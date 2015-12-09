@@ -3,8 +3,10 @@ var webpack = require('webpack');
 
 var config = {
   devtool : 'eval-source-map',
+
   entry: [
     './app/index.js',
+    './styles/main.scss',
   ],
   output: {
     filename: 'bundle.js',
@@ -17,11 +19,19 @@ var config = {
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader?stage=0' },
-      { test: /\.css$/, loader: 'style-loader!css-loader' },
-      { test: /\.scss$/, loader: 'style!css!sass?outputStyle=expanded&includePaths[]=' + path.resolve(__dirname, './css'), },
+      {
+        test: /\.js$/, loader: 'babel', exclude: /node_modules/,
+        query: { presets: ['es2015', 'react', 'stage-0'] }
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css?sourceMap', 'sass?sourceMap'],
+      },
     ]
   },
+  sassLoader: {
+    includePaths: [path.join(__dirname, "styles")]
+  }
 };
 
 module.exports = config;
