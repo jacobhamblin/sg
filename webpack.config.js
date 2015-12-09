@@ -6,7 +6,7 @@ var config = {
 
   entry: [
     './app/index.js',
-    './styles/main.scss',
+    './style/main.scss',
   ],
   output: {
     filename: 'bundle.js',
@@ -30,7 +30,7 @@ var config = {
     ]
   },
   sassLoader: {
-    includePaths: [path.join(__dirname, "styles")]
+    includePaths: [path.join(__dirname, "style")]
   }
 };
 
