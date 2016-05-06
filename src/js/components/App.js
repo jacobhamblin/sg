@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import '../../scss/main.scss'
 
-const App = () => {
+const App = ({children}) => {
   return (
     <div>
-      Hello World
+      {children}
     </div>
   )
 }
