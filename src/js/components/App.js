@@ -3,7 +3,7 @@ import '../../scss/main.scss'
 
 const App = ({children}) => {
   return (
-    <div>
+    <div className="app">
       {children}
     </div>
   )

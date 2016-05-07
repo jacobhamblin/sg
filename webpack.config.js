@@ -17,7 +17,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.scss', '.css'],
-    root: [ path.join(__dirname, 'app/') ],
+    root: [ path.join(__dirname, 'dist/') ],
   },
   module: {
     loaders: [
@@ -27,7 +27,9 @@ module.exports = {
       },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.css$/, loader: 'css-loader!postcss-loader' },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('css!postcss-loader!sass') }
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract('css!postcss-loader!sass') },
+      { test: /\.png$/, loader: 'file?name=bundle/img/[hash].[ext]' },
+      { test: /\.jpg$/, loader: 'file?name=bundle/img/[hash].[ext]' }
     ]
   },
   plugins: [

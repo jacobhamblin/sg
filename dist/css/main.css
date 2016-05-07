@@ -1,3 +1,29 @@
+.comment {
+  background-color: #fff;
+  border: 1px solid #999;
+  padding: 1rem 1rem 2rem 1rem; }
+  .comment .status-bar {
+    text-align: right; }
+    .comment .status-bar .options-container {
+      text-align: right; }
+  .comment .comment-container {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: start;
+            justify-content: flex-start; }
+    .comment .comment-container .avatar {
+      width: 50px;
+      height: 50px;
+      background-image: url(/bundle/img/740c1f9abbfcadec85f7132b4bc30741.png);
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      -webkit-filter: grayscale(1);
+      border-radius: 50%;
+      margin: 0 1rem 0 0; }
+
+.starter {
+  margin: 2rem 0; }
 *, *:before, *:after {
   box-sizing: border-box; }
 
@@ -56,3 +82,49 @@ input[type="submit"]:focus {
 /* Remove dotted outline from submits in firefox */
 #login input[type="submit"]::-moz-focus-inner {
   border: 0; }
+
+html {
+  font-size: 16px; }
+  html body {
+    background-color: #f4f4f4;
+    color: #555;
+    letter-spacing: .01rem;
+    word-spacing: .02rem;
+    font-family: gesta,Helvetica Neue,Helvetica,sans-serif; }
+    html body .app {
+      width: 100%;
+      max-width: 620px;
+      position: relative;
+      margin: 0 auto; }
+.options-container .option {
+  margin: 0 0 0 1rem;
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  cursor: pointer; }
+  .options-container .option:hover {
+    background-color: #e4e4e4; }
+  .options-container .option .edit {
+    width: 100%;
+    height: 100%;
+    background-image: url(/bundle/img/4eb3ea00a26c34df9d3d86e785a7c7c0.png);
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-filter: invert(0.35); }
+  .options-container .option .remove {
+    position: relative; }
+    .options-container .option .remove .line {
+      position: absolute;
+      left: 16px;
+      top: 7px;
+      width: 3px;
+      height: 21px;
+      background-color: #555;
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); }
+    .options-container .option .remove .line:last-of-type {
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg); }

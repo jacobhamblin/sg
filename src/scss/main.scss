@@ -1,1 +1,21 @@
 @import 'reset';
+@import 'variables';
+
+html {
+  font-size: 16px;
+
+  body {
+    background-color: $light;
+    color: $darkest;
+    letter-spacing: .01rem;
+    word-spacing: .02rem;
+    font-family: gesta,Helvetica Neue,Helvetica,sans-serif;
+
+    .app {
+      width: 100%;
+      max-width: 620px;
+      position: relative;
+      margin: 0 auto;
+    }
+  }
+}

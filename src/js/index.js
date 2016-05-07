@@ -12,5 +12,5 @@ ReactDOM.render(
       <Discussion/>
     </App>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('root')
 );

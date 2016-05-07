@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { fetchDiscussion } from '../actions'
 import { connect } from 'react-redux'
-import { Starter } from '../components'
+import { Comment } from '../components'
 
 class Discussion extends Component {
   constructor(props) {
@@ -18,12 +18,13 @@ class Discussion extends Component {
     const { discussion } = this.props
     let starter
     if (discussion) {
-      starter = <Starter
+      starter = <Comment
         author={discussion.author}
         author_id={discussion.author_id}
         datetime={discussion.datetime}
         id={discussion.id}
         title={discussion.title}
+        className={'comment starter'}
       />
     }
 

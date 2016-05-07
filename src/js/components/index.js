@@ -1,3 +1,4 @@
 export Discussion from './Discussion'
-export Starter from './Starter'
+export Comment from './Comment'
 export App from './App'
+export CommentOption from './CommentOption'

@@ -1,0 +1,46 @@
+@import './variables';
+
+.options-container {
+  
+  .option {
+    margin: 0 0 0 1rem;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-color: $light;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light-hover;
+    }
+
+    .edit {
+      width: 100%;
+      height: 100%;
+      background-image: url('../img/pencil.png');
+      background-size: 75%;
+      background-position: center;
+      background-repeat: no-repeat;
+      -webkit-filter: invert(0.35);
+
+    }
+
+    .remove {
+      position: relative;
+
+      .line {
+        position: absolute;
+        left: 16px;
+        top: 7px;
+        width: 3px;
+        height: 21px;
+        background-color: $darkest;
+        transform: rotate(45deg);
+      }
+      .line:last-of-type {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
