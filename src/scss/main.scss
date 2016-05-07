@@ -4,11 +4,14 @@
 html {
   font-size: 16px;
 
+  div {
+    letter-spacing: .01rem;
+    word-spacing: .02rem;
+  }
+
   body {
     background-color: $light;
     color: $darkest;
-    letter-spacing: .01rem;
-    word-spacing: .02rem;
     font-family: gesta,Helvetica Neue,Helvetica,sans-serif;
 
     .app {

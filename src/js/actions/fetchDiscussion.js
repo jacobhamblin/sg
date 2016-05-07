@@ -1,6 +1,13 @@
 require('es6-promise').polyfill();
 import fetch from 'isomorphic-fetch';
 
+export const RESET_STATE = 'RESET_STATE'
+function resetState() {
+  return {
+    type: RESET_STATE
+  }
+}
+
 export const REQUEST_DISCUSSION = 'REQUEST_DISCUSSION'
 function requestDiscussion(id) {
   return {
@@ -20,6 +27,7 @@ function receiveDiscussion(json) {
 
 export function fetchDiscussion(id) {
   return function (dispatch) {
+    dispatch(resetState())
     dispatch(requestDiscussion(id))
 
     return fetch(`../../json/${id}.json`)

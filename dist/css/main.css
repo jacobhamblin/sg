@@ -1,19 +1,22 @@
 .comment {
   background-color: #fff;
   border: 1px solid #999;
-  padding: 1rem 1rem 2rem 1rem; }
-  .comment .status-bar {
-    text-align: right; }
-    .comment .status-bar .options-container {
-      text-align: right; }
-  .comment .comment-container {
+  padding: 1rem 1rem 2rem 1rem;
+  margin: 0.5rem 0; }
+  .comment .title-bar {
+    margin: 1rem 0; }
+    .comment .title-bar .title {
+      margin-left: calc(1rem + 35px); }
+  .comment .user-container {
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: start;
-            justify-content: flex-start; }
-    .comment .comment-container .avatar {
-      width: 50px;
-      height: 50px;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+            align-items: center; }
+    .comment .user-container .avatar {
+      width: 35px;
+      height: 35px;
       background-image: url(/bundle/img/740c1f9abbfcadec85f7132b4bc30741.png);
       background-size: 100%;
       background-position: center;
@@ -21,6 +24,19 @@
       -webkit-filter: grayscale(1);
       border-radius: 50%;
       margin: 0 1rem 0 0; }
+    .comment .user-container .author {
+      font-size: 20px;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-flex: 1;
+              flex: 1;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+              flex-direction: column; }
+    .comment .user-container .options-container {
+      text-align: right; }
+  .comment .message {
+    margin: 1rem 1rem 1rem 51px; }
 
 .starter {
   margin: 2rem 0; }
@@ -85,11 +101,12 @@ input[type="submit"]:focus {
 
 html {
   font-size: 16px; }
+  html div {
+    letter-spacing: .01rem;
+    word-spacing: .02rem; }
   html body {
     background-color: #f4f4f4;
     color: #555;
-    letter-spacing: .01rem;
-    word-spacing: .02rem;
     font-family: gesta,Helvetica Neue,Helvetica,sans-serif; }
     html body .app {
       width: 100%;
