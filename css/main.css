@@ -1,7 +1,7 @@
 .comment {
   background-color: #fff;
   border: 1px solid #999;
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 1rem;
   margin: 0.5rem 0; }
   .comment .title-bar {
     margin: 1rem 0; }
@@ -17,11 +17,11 @@
     .comment .user-container .avatar {
       width: 35px;
       height: 35px;
-      background-image: url(/bundle/img/740c1f9abbfcadec85f7132b4bc30741.png);
+      background-image: url(/./bundle/img/740c1f9abbfcadec85f7132b4bc30741.png);
       background-size: 100%;
       background-position: center;
       background-repeat: no-repeat;
-      -webkit-filter: grayscale(1);
+      -webkit-filter: grayscale(1) brightness(1.1);
       border-radius: 50%;
       margin: 0 1rem 0 0; }
     .comment .user-container .author {
@@ -35,8 +35,23 @@
               flex-direction: column; }
     .comment .user-container .options-container {
       text-align: right; }
-  .comment .message {
-    margin: 1rem 1rem 1rem 51px; }
+  .comment .message-container {
+    display: -webkit-box;
+    display: flex;
+    margin: 1rem 0; }
+    .comment .message-container .toggle-comments {
+      width: 35px;
+      height: 15px;
+      margin: 0 1rem 0 0; }
+    .comment .message-container .message {
+      -webkit-box-flex: 1;
+              flex: 1;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+              flex-direction: column; }
+  .comment .deleted {
+    font-size: 12px;
+    margin: 0 0 0 51px; }
 
 .starter {
   margin: 2rem 0; }
@@ -126,7 +141,7 @@ html {
   .options-container .option .edit {
     width: 100%;
     height: 100%;
-    background-image: url(/bundle/img/4eb3ea00a26c34df9d3d86e785a7c7c0.png);
+    background-image: url(/./bundle/img/4eb3ea00a26c34df9d3d86e785a7c7c0.png);
     background-size: 75%;
     background-position: center;
     background-repeat: no-repeat;
@@ -145,3 +160,18 @@ html {
     .options-container .option .remove .line:last-of-type {
       -webkit-transform: rotate(-45deg);
               transform: rotate(-45deg); }
+.toggle-comments .toggle {
+  background-image: url(/./bundle/img/f82979606037155d059a836d5415dcfa.svg);
+  background-size: 40%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: invert(0.6);
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  cursor: pointer; }
+
+.toggle-comments .toggle.show {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg); }
