@@ -2,12 +2,12 @@
 
 .comment {
   background-color: $white;
-  border: 1px solid $dark;
-  padding: 1rem;
-  margin: 0.5rem 0;
+  padding: 25px 1rem 1rem 1rem;
+  margin: 1rem 0;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
 
   .title-bar {
-    margin: 1rem 0;
+    margin: 8px 0 1rem 0;
 
     .title {
       margin-left: calc(1rem + 35px);
@@ -58,7 +58,6 @@
       flex-direction: column;
     }
   }
-
 
   .deleted {
     font-size: 12px;

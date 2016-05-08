@@ -1,0 +1,27 @@
+.timestamp {
+  margin: 25px 0 1rem 51px;
+  font-size: 12px;
+  height: 12px;
+  overflow: hidden;
+  position: relative;
+  width: 250px;
+
+  span {
+    position: absolute;
+    transition: all .2s ease;
+
+    &.active {
+      margin-top: -12px;
+    }
+  }
+
+  span.ago {
+    top: 0;
+    left: 0;
+  }
+
+  span.date {
+    top: 12px;
+    left: 0;
+  }
+}
