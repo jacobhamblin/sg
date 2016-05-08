@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { fetchDiscussion } from '../actions'
 import { connect } from 'react-redux'
 import { Comment } from '../components'
+import '../../scss/discussion.scss'
 
 function displayComments(comment, user_id, dispatch, i) {
   let className = 'comment'
@@ -44,7 +45,7 @@ class Discussion extends Component {
     const { discussion, id, user_id, dispatch } = this.props
 
     return (
-      <div>
+      <div className="discussion">
         {discussion ? displayComments(discussion, user_id, dispatch, -1) : null}
       </div>
     )
