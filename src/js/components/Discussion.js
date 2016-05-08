@@ -3,7 +3,7 @@ import { fetchDiscussion } from '../actions'
 import { connect } from 'react-redux'
 import { Comment } from '../components'
 
-function displayComments(comment, user_id, dispatch) {
+function displayComments(comment, user_id, dispatch, i) {
   let className = 'comment'
   if (comment.title && comment.discussion) className += ' starter'
 
@@ -22,8 +22,9 @@ function displayComments(comment, user_id, dispatch) {
       deleted={comment.deleted}
       dispatch={dispatch}
       hide_children={comment.hide_children}
+      depth={i}
     >
-      {comment.comments ? comment.comments.map(c => displayComments(c, user_id, dispatch)) : null}
+      {comment.comments ? comment.comments.map(c => displayComments(c, user_id, dispatch, i + 1)) : null}
     </Comment>
   )
 }
@@ -44,7 +45,7 @@ class Discussion extends Component {
 
     return (
       <div>
-        {discussion ? displayComments(discussion, user_id, dispatch) : null}
+        {discussion ? displayComments(discussion, user_id, dispatch, -1) : null}
       </div>
     )
   }

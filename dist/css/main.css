@@ -52,6 +52,16 @@
   .comment .deleted {
     font-size: 12px;
     margin: 0 0 0 51px; }
+  .comment.deleted {
+    padding: 1rem 0; }
+  .comment.one {
+    margin-left: 2rem; }
+  .comment.two {
+    margin-left: 4rem; }
+  .comment.three {
+    margin-left: 6rem; }
+  .comment.four {
+    margin-left: 8rem; }
 
 .starter {
   margin: 2rem 0; }

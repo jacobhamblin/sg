@@ -4,7 +4,7 @@ import '../../scss/comment.scss'
 
 const Comment = ({
   author, author_id, datetime, id, title, className, discussion, user_id,
-  comment, children, comments, deleted, dispatch, hide_children
+  comment, children, comments, deleted, dispatch, hide_children, depth
 }) => {
   let titleEl, editEl, toggleComments
   let discussionHTML = { __html: discussion || comment}
@@ -24,10 +24,26 @@ const Comment = ({
       </div>
     )
   }
+  if (depth > 0) {
+    switch(depth) {
+      case 1:
+      className += ' one'
+      break
+      case 2:
+      className += ' two'
+      break
+      case 3:
+      className += ' three'
+      break
+      case 4:
+      className += ' four'
+      break
+    }
+  }
   if (deleted) {
     return (
       <div>
-        <div className={className}>
+        <div className={className + ' deleted'}>
           <span className='deleted'><i>Message deleted by user.</i></span>
         </div>
         {children}

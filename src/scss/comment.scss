@@ -63,6 +63,26 @@
     font-size: 12px;
     margin: 0 0 0 51px;
   }
+
+  &.deleted {
+    padding: 1rem 0;
+  }
+
+  &.one {
+    margin-left: 2rem;
+  }
+
+  &.two {
+    margin-left: 4rem;
+  }
+
+  &.three {
+    margin-left: 6rem;
+  }
+
+  &.four {
+    margin-left: 8rem;
+  }
 }
 
 .starter {
