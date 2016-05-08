@@ -28,8 +28,9 @@ module.exports = {
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.css$/, loader: 'css-loader!postcss-loader' },
       { test: /\.scss$/, loader: ExtractTextPlugin.extract('css!postcss-loader!sass') },
-      { test: /\.png$/, loader: 'file?name=bundle/img/[hash].[ext]' },
-      { test: /\.jpg$/, loader: 'file?name=bundle/img/[hash].[ext]' }
+      { test: /\.png$/, loader: 'file?name=./bundle/img/[hash].[ext]' },
+      { test: /\.jpg$/, loader: 'file?name=./bundle/img/[hash].[ext]' },
+      { test: /\.svg$/, loader: 'file?name=./bundle/img/[hash].[ext]' }
     ]
   },
   plugins: [

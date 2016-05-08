@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { CommentOption } from '../components'
+import { CommentOption, ToggleComments } from '../components'
 import '../../scss/comment.scss'
 
 class Comment extends Component {
@@ -10,9 +10,9 @@ class Comment extends Component {
   render() {
     const {
       author, author_id, datetime, id, title, className, discussion, user_id,
-      comment, children, comments
+      comment, children, comments, deleted, dispatch, hide_children
     } = this.props
-    let titleEl, editEl
+    let titleEl, editEl, toggleComments
     let discussionHTML = { __html: discussion || comment}
 
     if (title) {
@@ -30,6 +30,19 @@ class Comment extends Component {
         </div>
       )
     }
+    if (deleted) {
+      return (
+        <div>
+          <div className={className}>
+            <span className='deleted'><i>Message deleted by user.</i></span>
+          </div>
+          {children}
+        </div>
+      )
+    }
+    if (comments && comments.length && (!title && !discussion)) {
+      toggleComments = <ToggleComments dispatch={dispatch} id={id}/>
+    }
 
     return (
       <div>
@@ -40,9 +53,14 @@ class Comment extends Component {
             <span className='author'>{author}</span>
             {editEl}
           </div>
-          <div className='message' dangerouslySetInnerHTML={discussionHTML}></div>
+          <div className='message-container'>
+            <div className='toggle-comments'>
+              {toggleComments}
+            </div>
+            <div className='message' dangerouslySetInnerHTML={discussionHTML}></div>
+          </div>
         </div>
-        {children}
+        {hide_children ? null : children}
       </div>
     )
   }

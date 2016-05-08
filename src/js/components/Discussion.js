@@ -3,24 +3,27 @@ import { fetchDiscussion } from '../actions'
 import { connect } from 'react-redux'
 import { Comment } from '../components'
 
-function displayComments(comment, user_id) {
+function displayComments(comment, user_id, dispatch) {
   let className = 'comment'
   if (comment.title && comment.discussion) className += ' starter'
 
   return (
     <Comment
-    author={comment.author}
-    author_id={comment.author_id}
-    datetime={comment.datetime}
-    id={comment.id}
-    title={comment.title}
-    discussion={comment.discussion}
-    comment={comment.comment}
-    comments={comment.comments}
-    className={className}
-    user_id={user_id}
+      author={comment.author}
+      author_id={comment.author_id}
+      datetime={comment.datetime}
+      id={comment.id}
+      title={comment.title}
+      discussion={comment.discussion}
+      comment={comment.comment}
+      comments={comment.comments}
+      className={className}
+      user_id={user_id}
+      deleted={comment.deleted}
+      dispatch={dispatch}
+      hide_children={comment.hide_children}
     >
-    {comment.comments ? comment.comments.map(c => displayComments(c, user_id)) : null}
+      {comment.comments ? comment.comments.map(c => displayComments(c, user_id, dispatch)) : null}
     </Comment>
   )
 }
@@ -37,11 +40,11 @@ class Discussion extends Component {
   }
 
   render() {
-    const { discussion, id, user_id } = this.props
+    const { discussion, id, user_id, dispatch } = this.props
 
     return (
       <div>
-        {discussion ? displayComments(discussion, user_id) : null}
+        {discussion ? displayComments(discussion, user_id, dispatch) : null}
       </div>
     )
   }

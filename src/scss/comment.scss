@@ -3,7 +3,7 @@
 .comment {
   background-color: $white;
   border: 1px solid $dark;
-  padding: 1rem 1rem 2rem 1rem;
+  padding: 1rem;
   margin: 0.5rem 0;
 
   .title-bar {
@@ -12,8 +12,6 @@
     .title {
       margin-left: calc(1rem + 35px);
     }
-
-
   }
 
   .user-container {
@@ -28,7 +26,7 @@
       background-size: 100%;
       background-position: center;
       background-repeat: no-repeat;
-      -webkit-filter: grayscale(1);
+      -webkit-filter: grayscale(1) brightness(1.1);
       border-radius: 50%;
       margin: 0 1rem 0 0;
     }
@@ -45,8 +43,26 @@
     }
   }
 
-  .message {
-    margin: 1rem 1rem 1rem 51px;
+  .message-container {
+    display: flex;
+    margin: 1rem 0;
+
+    .toggle-comments {
+      width: 35px;
+      height: 15px;
+      margin: 0 1rem 0 0;
+    }
+
+    .message {
+      flex: 1;
+      flex-direction: column;
+    }
+  }
+
+
+  .deleted {
+    font-size: 12px;
+    margin: 0 0 0 51px;
   }
 }
 

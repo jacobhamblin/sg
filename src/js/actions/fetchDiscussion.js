@@ -1,6 +1,12 @@
 require('es6-promise').polyfill();
 import fetch from 'isomorphic-fetch';
 
+function addVisibilityState(comment) {
+  comment.hide_children = false
+
+  if (comment.comments) comment.comments.map(addVisibilityState)
+}
+
 export const RESET_STATE = 'RESET_STATE'
 function resetState() {
   return {
@@ -18,6 +24,8 @@ function requestDiscussion(id) {
 
 export const RECEIVE_DISCUSSION = 'RECEIVE_DISCUSSION'
 function receiveDiscussion(json) {
+  addVisibilityState(json.discussion)
+
   return {
     type: RECEIVE_DISCUSSION,
     discussion: json.discussion,
@@ -30,7 +38,7 @@ export function fetchDiscussion(id) {
     dispatch(resetState())
     dispatch(requestDiscussion(id))
 
-    return fetch(`../../json/${id}.json`)
+    return fetch(`./json/${id}.json`)
       .then(response => response.json())
       .then(json => dispatch(receiveDiscussion(json)))
   }
