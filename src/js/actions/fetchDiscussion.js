@@ -1,7 +1,7 @@
 require('es6-promise').polyfill();
 import fetch from 'isomorphic-fetch';
 
-function addVisibilityState(comment) {
+export function addVisibilityState(comment) {
   comment.hide_children = false
 
   if (comment.comments) comment.comments.map(addVisibilityState)

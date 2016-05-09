@@ -14,7 +14,7 @@ function toggleCommentVisibility(comment) {
   comment.hide_children = !comment.hide_children
 }
 
-function findComment(queue, id) {
+export function findComment(queue, id) {
   while (queue.length) {
     let comment = queue.pop()
     if (comment.id === id && (!comment.title && !comment.discussion)) {
