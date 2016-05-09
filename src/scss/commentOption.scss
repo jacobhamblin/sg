@@ -1,7 +1,7 @@
 @import './variables';
 
 .options-container {
-  
+
   .option {
     margin: 0 0 0 1rem;
     width: 35px;
@@ -11,7 +11,7 @@
     border-radius: 50%;
     cursor: pointer;
 
-    &:hover {
+    &:active {
       background-color: $light-hover;
     }
 
@@ -24,10 +24,34 @@
       background-repeat: no-repeat;
       -webkit-filter: invert(0.35);
 
+      &:hover {
+        animation-name: lift;
+        animation-duration: .4s;
+        animation-timing-function: ease;
+        animation-iteration-count: 2;
+        animation-direction: alternate;
+      }
     }
 
     .remove {
       position: relative;
+      height: 35px;
+
+      &:hover {
+
+        .line {
+          animation-duration: .4s;
+          animation-timing-function: ease;
+          animation-name: spin-first;
+          animation-iteration-count: 2;
+          animation-direction: alternate;
+        }
+
+        .line:last-of-type {
+          animation-name: spin-second;
+
+        }
+      }
 
       .line {
         position: absolute;
@@ -42,5 +66,37 @@
         transform: rotate(-45deg);
       }
     }
+  }
+}
+
+@keyframes spin-first {
+  from {
+    transform: rotate(45deg);
+  }
+
+  to {
+    transform: rotate(55deg);
+  }
+}
+
+@keyframes spin-second {
+  from {
+    transform: rotate(-45deg);
+  }
+
+  to {
+    transform: rotate(-55deg);
+  }
+}
+
+@keyframes lift {
+  from {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  to {
+    margin-left: 5px;
+    margin-top: -5px;
   }
 }

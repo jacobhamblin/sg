@@ -22,6 +22,16 @@ function agoString(date) {
     str = `${days} day`
     if (days > 1) str += 's'
     str += ' ago'
+  } else if (hours) {
+    str = `${hours} hour`
+    if (hours > 1) str += 's'
+    if (minutes % 60) str += ` ${minutes % 60} minutes ago`
+  } else if (minutes) {
+    if (minutes > 5) {
+      str = `${minutes} minutes ago`
+    } else {
+      str = `just now`
+    }
   }
 
   return str

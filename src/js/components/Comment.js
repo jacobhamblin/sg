@@ -19,6 +19,8 @@ class Comment extends Component {
     this.setState({
       editing: true
     })
+
+    setTimeout(() => {this._textarea.focus()}, 0)
   }
 
   cancelEditClick() {
