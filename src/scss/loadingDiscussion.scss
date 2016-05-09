@@ -1,0 +1,28 @@
+@import './variables';
+
+.discussion {
+
+  .loading-dots-container {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(50% - 32px);
+    -webkit-filter: invert(0.4);
+  }
+
+  .bar {
+    height: 10px;
+    width: 100%;
+    margin-top: 2px;
+    background-color: $light;
+
+    &.short {
+      width: 20%;
+    }
+
+    &.medium {
+      width: 50%;
+    }
+  }
+}

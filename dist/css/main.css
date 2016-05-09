@@ -61,7 +61,8 @@
         font-size: 16px;
         color: #555;
         resize: vertical;
-        max-height: 200px;
+        min-height: 64px;
+        max-height: 192px;
         outline: none; }
   .comment .lower-bar {
     margin: 25px 0 1rem 51px;
@@ -228,3 +229,21 @@ html {
   .timestamp span.date {
     top: 12px;
     left: 0; }
+.discussion .loading-dots-container {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: calc(50% - 32px);
+  -webkit-filter: invert(0.4); }
+
+.discussion .bar {
+  height: 10px;
+  width: 100%;
+  margin-top: 2px;
+  background-color: #f4f4f4; }
+  .discussion .bar.short {
+    width: 20%; }
+  .discussion .bar.medium {
+    width: 50%; }
