@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../../scss/timestamp.scss'
 
 function javascriptDate(timestamp) {
-  return new Date((timestamp || "").replace(/-/g,"/").replace(/[TZ]/g," "))
+  return new Date(timestamp)
 }
 
 function agoString(date) {
