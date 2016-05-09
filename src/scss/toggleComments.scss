@@ -1,4 +1,7 @@
 .toggle-comments {
+  width: 35px;
+  height: 10px;
+  margin: 3px 1rem 0 0;
 
   .toggle {
     background-image: url('../img/arrow.svg');
@@ -13,5 +16,11 @@
 
   .toggle.show {
     transform: rotate(90deg);
+  }
+}
+
+.comment.deleted {
+  .toggle-comments {
+    margin: 0 1rem 0 0;
   }
 }

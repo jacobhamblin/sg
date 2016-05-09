@@ -47,12 +47,6 @@
     display: flex;
     margin: 1rem 0;
 
-    .toggle-comments {
-      width: 35px;
-      height: 10px;
-      margin: 3px 1rem 0 0;
-    }
-
     .message {
       flex: 1;
       flex-direction: column;
@@ -94,11 +88,11 @@
 
   .deleted {
     font-size: 12px;
-    margin: 0 0 0 51px;
   }
 
   &.deleted {
     padding: 1rem;
+    display: flex;
   }
 
   &.one {

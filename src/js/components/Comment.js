@@ -93,18 +93,19 @@ class Comment extends Component {
         break
       }
     }
+    if (comments && comments.length && (!title && !discussion)) {
+      toggleComments = <ToggleComments dispatch={dispatch} id={id}/>
+    }
     if (deleted) {
       return (
         <div>
           <div className={className + ' deleted'}>
+            <div className='toggle-comments'>{toggleComments}</div>
             <span className='deleted'><i>Message deleted by user.</i></span>
           </div>
-          {children}
+          { hide_children ? null : children}
         </div>
       )
-    }
-    if (comments && comments.length && (!title && !discussion)) {
-      toggleComments = <ToggleComments dispatch={dispatch} id={id}/>
     }
 
     return (
