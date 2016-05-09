@@ -1,14 +1,17 @@
 import {
-  RESET_STATE, REQUEST_DISCUSSION, RECEIVE_DISCUSSION, TOGGLE_COMMENTS, EDIT_COMMENT
+  RESET_STATE, REQUEST_DISCUSSION, RECEIVE_DISCUSSION, TOGGLE_COMMENTS, EDIT_COMMENT, DELETE_COMMENT
 } from '../actions'
-
-
-function toggleCommentVisibility(comment) {
-  comment.hide_children = !comment.hide_children
-}
 
 function changeText(comment, text) {
   comment.discussion ? comment.discussion = text : comment.comment = text
+}
+
+function deleteComment(comment) {
+  comment.deleted = true
+}
+
+function toggleCommentVisibility(comment) {
+  comment.hide_children = !comment.hide_children
 }
 
 function findComment(queue, id) {
@@ -53,6 +56,19 @@ const discussion = (state = {
       if (state.discussion) {
         var clonedDisc = Object.assign({}, state.discussion)
         changeText(findComment([clonedDisc], action.id), action.text)
+      } else {
+        return new ReferenceError('discussion not loaded')
+      }
+
+      return Object.assign({}, state, {
+        discussion: clonedDisc
+      })
+    case DELETE_COMMENT:
+      if (state.discussion) {
+        var clonedDisc = Object.assign({}, state.discussion)
+        deleteComment(findComment([clonedDisc], action.id))
+      } else {
+        return new ReferenceError('discussion not loaded')
       }
 
       return Object.assign({}, state, {
@@ -62,6 +78,8 @@ const discussion = (state = {
       if (state.discussion) {
         var clonedDisc = Object.assign({}, state.discussion)
         toggleCommentVisibility(findComment([clonedDisc], action.id))
+      } else {
+        return new ReferenceError('discussion not loaded')
       }
 
       return Object.assign({}, state, {

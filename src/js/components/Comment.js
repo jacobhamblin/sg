@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { CommentOption, ToggleComments, Timestamp } from '../components'
-import { editComment } from '../actions'
+import { editComment, deleteComment } from '../actions'
 import '../../scss/comment.scss'
 
 class Comment extends Component {
@@ -37,7 +37,9 @@ class Comment extends Component {
   }
 
   removeClick() {
-    console.log('remove click')
+    const { dispatch, id } = this.props
+
+    dispatch(deleteComment(id))
   }
 
   render() {
