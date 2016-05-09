@@ -1,10 +1,14 @@
 import {
-  RESET_STATE, REQUEST_DISCUSSION, RECEIVE_DISCUSSION, TOGGLE_COMMENTS
+  RESET_STATE, REQUEST_DISCUSSION, RECEIVE_DISCUSSION, TOGGLE_COMMENTS, EDIT_COMMENT
 } from '../actions'
 
 
 function toggleCommentVisibility(comment) {
   comment.hide_children = !comment.hide_children
+}
+
+function changeText(comment, text) {
+  comment.discussion ? comment.discussion = text : comment.comment = text
 }
 
 function findComment(queue, id) {
@@ -44,6 +48,15 @@ const discussion = (state = {
         isFetching: false,
         discussion: action.discussion,
         receivedAt: action.receivedAt
+      })
+    case EDIT_COMMENT:
+      if (state.discussion) {
+        var clonedDisc = Object.assign({}, state.discussion)
+        changeText(findComment([clonedDisc], action.id), action.text)
+      }
+
+      return Object.assign({}, state, {
+        discussion: clonedDisc
       })
     case TOGGLE_COMMENTS:
       if (state.discussion) {
